@@ -5,8 +5,10 @@
 // import { UserPlus, Upload, CheckCircle } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useTranslation } from 'react-i18next';
 
 export default function Register() {
+  const { t } = useTranslation();
   // const [step, setStep] = useState(1);
   // const [loading, setLoading] = useState(false);
   // const [error, setError] = useState('');
@@ -257,7 +259,7 @@ export default function Register() {
               <div className="flex items-center justify-center gap-3">
                 {/* <UserPlus className="text-white" size={32} /> */}
                 <h1 className="text-3xl font-bold text-white text-center">
-                  التسجيل كعضو في النقابة
+                  {t("register_page.title")}
                 </h1>
               </div>
               <div className="mt-6 flex items-center justify-center gap-4">
@@ -267,7 +269,7 @@ export default function Register() {
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center  font-bold`}>
                     1
                   </div>
-                  <span className="font-medium">إنشاء حساب</span>
+                  <span className="font-medium">{t("register_page.step1")}</span>
                 </div>
                 {/* ${step >= 2 ? 'bg-white' : 'bg-red-400'} */}
                 <div className={`w-16 h-0.5 `} />
@@ -277,7 +279,7 @@ export default function Register() {
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center  font-bold`}>
                     2
                   </div>
-                  <span className="font-medium">بيانات الشركة</span>
+                  <span className="font-medium">{t("register_page.step2")}</span>
                 </div>
                 {/* ${step >= 3 ? 'bg-white' : 'bg-red-400'} */}
                 <div className={`w-16 h-0.5 `} />
@@ -287,7 +289,7 @@ export default function Register() {
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold`}>
                     3
                   </div>
-                  <span className="font-medium">المرفقات</span>
+                  <span className="font-medium">{t("register_page.step3")}</span>
                 </div>
               </div>
             </div>
@@ -301,11 +303,11 @@ export default function Register() {
 
                {true && (
                 <form  className="space-y-6">
-                  <h2 className="text-2xl font-bold text-slate-900 mb-6">إنشاء حساب</h2>
+                  <h2 className="text-2xl font-bold text-slate-900 mb-6">{t("register_page.step1")}</h2>
 
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
-                      البريد الإلكتروني
+                      {t("register_page.email")}
                     </label>
                     <input
                       type="email"
@@ -319,7 +321,7 @@ export default function Register() {
 
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
-                      كلمة المرور
+                      {t("register_page.password")}
                     </label>
                     <input
                       type="password"
@@ -332,7 +334,7 @@ export default function Register() {
 
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
-                      تأكيد كلمة المرور
+                      {t("register_page.confirm_password")}
                     </label>
                     <input
                       type="password"
@@ -348,7 +350,7 @@ export default function Register() {
                     disabled={false}
                     className="w-full bg-red-600 text-white py-3 rounded-lg font-medium hover:bg-red-700 transition-colors duration-200 disabled:opacity-50"
                   >
-                    {false ? 'جاري الإنشاء...' : 'التالي'}
+                    {false ? t("register_page.creating") : t("register_page.next")}
                   </button>
                 </form>
               )}

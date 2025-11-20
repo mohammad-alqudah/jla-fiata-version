@@ -121,7 +121,18 @@
     "more": "More",
     "logout": "Logout",
     "associationName": "Jordanian Logistics Association",
-    "associationArabic": "النقابة اللوجستية الأردنية"
+    "associationArabic": "النقابة اللوجستية الأردنية",
+    "fiataHome": "FIATA Home",
+    "aboutFiata": "About FIATA",
+    "jlaAsFiataMember": "JLA as FIATA Member",
+    "diplomaPrograms": "Diploma Programs",
+    "diplomaInFreightForwarding": "Diploma in Freight Forwarding",
+    "industryUpdates": "Industry Updates",
+    "mediaCentre": "Media Centre",
+    "diplomaHolders": "Diploma Holders",
+    "certifiedExperts": "Certified Experts",
+    "faqs": "FAQs",
+    "fiataContact": "Contact"
   },
   "fiata": {
     "title": "FIATA Diploma in Freight Forwarding",
@@ -136,8 +147,83 @@
     "news": "News",
     "signIn": "Sign In",
     "register": "Register"
+  },
+  "register_page": {
+    "title": "Register as a Member",
+    "step1": "Create Account",
+    "step2": "Company Information",
+    "step3": "Attachments",
+    "email": "Email Address",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit Application",
+    "submitting": "Submitting...",
+    "creating": "Creating..."
+  },
+  "news_detail": {
+    "not_found": "News Not Found",
+    "back_to_home": "Back to Home",
+    "back_to_news": "Back to News",
+    "related_news": "Related News",
+    "gallery": "Photo Gallery",
+    "view_image": "View Image"
+  },
+  "all_news": {
+    "search_placeholder": "Search news...",
+    "filter_label": "Category:",
+    "all": "All",
+    "news_count": "news",
+    "news_count_one": "news item",
+    "in_category": "in category",
+    "no_results": "No Results",
+    "no_results_message": "We couldn't find any news matching your search. Try different keywords.",
+    "read_more": "Read More"
+  },
+  "about_milestones": {
+    "milestone_2009_event": "JLA Founded",
+    "milestone_2009_description": "Established to unite Jordan's logistics professionals",
+    "milestone_2012_event": "First Certification Program",
+    "milestone_2012_description": "Launched professional development initiatives",
+    "milestone_2015_event": "100 Members Milestone",
+    "milestone_2015_description": "Reached significant membership growth",
+    "milestone_2018_event": "Regional Partnerships",
+    "milestone_2018_description": "Expanded cooperation across the Middle East",
+    "milestone_2021_event": "Digital Transformation",
+    "milestone_2021_description": "Launched online platforms and services",
+    "milestone_2024_event": "500+ Active Members",
+    "milestone_2024_description": "Became Jordan's largest logistics association"
+  },
+  "fiata_pages": {
+    "home": {
+      "slide1_title": "JLA FIATA Diploma in Freight Forwarding – Delivered in Jordan",
+      "slide1_text": "Enroll in a world-class FIATA-accredited diploma program with the Jordanian Logistics Association (JLA) and take your freight forwarding career to the next level.",
+      "slide1_button": "Enroll Now",
+      "slide2_title": "Globally Recognised FIATA Qualification",
+      "slide2_text": "Earn an internationally recognised diploma that meets FIATA's minimum standards for freight forwarding education and opens doors to global career opportunities.",
+      "slide2_button": "Download Applicant Brochure",
+      "slide3_title": "Learn from FIATA-Validated Experts",
+      "slide3_text": "Train with highly experienced logistics and freight forwarding professionals validated by FIATA and active in the industry.",
+      "slide3_button": "Meet Our Experts",
+      "welcome_title": "Welcome to FIATA–JLA Diploma Hub in Jordan",
+      "welcome_text": "Welcome to the official information hub for FIATA Diploma Programs delivered in Jordan by the Jordanian Logistics Association (JLA). Through FIATA-accredited training, logistics professionals and aspiring specialists can gain internationally recognised qualifications in freight forwarding and supply chain management.",
+      "card1_title": "FIATA Diploma in Freight Forwarding",
+      "card1_text": "A comprehensive program covering multimodal transport, customs, digital operations, and global freight forwarding practices.",
+      "card1_link": "Learn More →",
+      "card2_title": "JLA as FIATA Association Member",
+      "card2_text": "The Jordanian Logistics Association is the official FIATA Association Member in Jordan, accredited to deliver FIATA Diploma training.",
+      "card2_link": "Learn More →",
+      "card3_title": "Career Impact & Networking",
+      "card3_text": "Build your skills, expand your professional network, and align with the standards recognised by logistics companies around the world.",
+      "card3_link": "View Program Overview →",
+      "insights_title": "FIATA Industry Insights",
+      "insights_text": "Stay informed about the latest developments in freight forwarding and logistics worldwide.",
+      "insights_magazine_title": "Check out the latest FIATA Association Magazine:",
+      "insights_magazine_name": "FIATA Review – March 2025",
+      "insights_button": "Read the Magazine"
+    }
   }
-  
 
 }
  

@@ -19,12 +19,12 @@ import { useTranslation } from 'react-i18next';
 const About = () => {
   const { t } = useTranslation();
   const milestones = [
-    { year: '2009', event: 'JLA Founded', description: 'Established to unite Jordan\'s logistics professionals' },
-    { year: '2012', event: 'First Certification Program', description: 'Launched professional development initiatives' },
-    { year: '2015', event: '100 Members Milestone', description: 'Reached significant membership growth' },
-    { year: '2018', event: 'Regional Partnerships', description: 'Expanded cooperation across the Middle East' },
-    { year: '2021', event: 'Digital Transformation', description: 'Launched online platforms and services' },
-    { year: '2024', event: '500+ Active Members', description: 'Became Jordan\'s largest logistics association' },
+    { year: '2009', event: t('about_milestones.milestone_2009_event'), description: t('about_milestones.milestone_2009_description') },
+    { year: '2012', event: t('about_milestones.milestone_2012_event'), description: t('about_milestones.milestone_2012_description') },
+    { year: '2015', event: t('about_milestones.milestone_2015_event'), description: t('about_milestones.milestone_2015_description') },
+    { year: '2018', event: t('about_milestones.milestone_2018_event'), description: t('about_milestones.milestone_2018_description') },
+    { year: '2021', event: t('about_milestones.milestone_2021_event'), description: t('about_milestones.milestone_2021_description') },
+    { year: '2024', event: t('about_milestones.milestone_2024_event'), description: t('about_milestones.milestone_2024_description') },
   ];
 
   const leadership = [

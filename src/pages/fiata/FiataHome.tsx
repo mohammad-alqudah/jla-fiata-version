@@ -3,29 +3,31 @@ import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, BookOpen, Users, TrendingUp } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import { useTranslation } from 'react-i18next';
 
 const FiataHome = () => {
+  const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
     {
-      title: 'JLA FIATA Diploma in Freight Forwarding – Delivered in Jordan',
-      text: 'Enroll in a world-class FIATA-accredited diploma program with the Jordanian Logistics Association (JLA) and take your freight forwarding career to the next level.',
-      button: 'Enroll Now',
+      title: t('fiata_pages.home.slide1_title'),
+      text: t('fiata_pages.home.slide1_text'),
+      button: t('fiata_pages.home.slide1_button'),
       link: '/fiata/diploma-details',
       image: 'https://images.pexels.com/photos/906494/pexels-photo-906494.jpeg?auto=compress&cs=tinysrgb&w=1920'
     },
     {
-      title: 'Globally Recognised FIATA Qualification',
-      text: 'Earn an internationally recognised diploma that meets FIATA\'s minimum standards for freight forwarding education and opens doors to global career opportunities.',
-      button: 'Download Applicant Brochure',
+      title: t('fiata_pages.home.slide2_title'),
+      text: t('fiata_pages.home.slide2_text'),
+      button: t('fiata_pages.home.slide2_button'),
       link: '#brochure',
       image: 'https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=1920'
     },
     {
-      title: 'Learn from FIATA-Validated Experts',
-      text: 'Train with highly experienced logistics and freight forwarding professionals validated by FIATA and active in the industry.',
-      button: 'Meet Our Experts',
+      title: t('fiata_pages.home.slide3_title'),
+      text: t('fiata_pages.home.slide3_text'),
+      button: t('fiata_pages.home.slide3_button'),
       link: '/fiata/experts',
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920'
     }
@@ -103,11 +105,10 @@ const FiataHome = () => {
       <div className="max-w-7xl mx-auto px-4 py-16">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Welcome to FIATA–JLA Diploma Hub in Jordan
+            {t('fiata_pages.home.welcome_title')}
           </h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Welcome to the official information hub for FIATA Diploma Programs delivered in Jordan by the Jordanian Logistics Association (JLA).
-            Through FIATA-accredited training, logistics professionals and aspiring specialists can gain internationally recognised qualifications in freight forwarding and supply chain management.
+            {t('fiata_pages.home.welcome_text')}
           </p>
         </div>
 
@@ -117,16 +118,16 @@ const FiataHome = () => {
               <BookOpen className="w-8 h-8 text-blue-600" />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              FIATA Diploma in Freight Forwarding
+              {t('fiata_pages.home.card1_title')}
             </h3>
             <p className="text-gray-700 mb-6">
-              A comprehensive program covering multimodal transport, customs, digital operations, and global freight forwarding practices.
+              {t('fiata_pages.home.card1_text')}
             </p>
             <Link
               to="/fiata/diploma-details"
               className="text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center"
             >
-              Learn More →
+              {t('fiata_pages.home.card1_link')}
             </Link>
           </div>
 
@@ -135,16 +136,16 @@ const FiataHome = () => {
               <Users className="w-8 h-8 text-green-600" />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              JLA as FIATA Association Member
+              {t('fiata_pages.home.card2_title')}
             </h3>
             <p className="text-gray-700 mb-6">
-              The Jordanian Logistics Association is the official FIATA Association Member in Jordan, accredited to deliver FIATA Diploma training.
+              {t('fiata_pages.home.card2_text')}
             </p>
             <Link
               to="/fiata/jla-member"
               className="text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center"
             >
-              Learn More →
+              {t('fiata_pages.home.card2_link')}
             </Link>
           </div>
 
@@ -153,28 +154,28 @@ const FiataHome = () => {
               <TrendingUp className="w-8 h-8 text-purple-600" />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Career Impact & Networking
+              {t('fiata_pages.home.card3_title')}
             </h3>
             <p className="text-gray-700 mb-6">
-              Build your skills, expand your professional network, and align with the standards recognised by logistics companies around the world.
+              {t('fiata_pages.home.card3_text')}
             </p>
             <Link
               to="/fiata/programs"
               className="text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center"
             >
-              View Program Overview →
+              {t('fiata_pages.home.card3_link')}
             </Link>
           </div>
         </div>
 
         <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg shadow-xl p-12 text-white text-center">
-          <h2 className="text-3xl font-bold mb-4">FIATA Industry Insights</h2>
+          <h2 className="text-3xl font-bold mb-4">{t('fiata_pages.home.insights_title')}</h2>
           <p className="text-lg mb-6">
-            Stay informed about the latest developments in freight forwarding and logistics worldwide.
+            {t('fiata_pages.home.insights_text')}
           </p>
           <div className="bg-white bg-opacity-10 rounded-lg p-6 mb-6 inline-block">
-            <p className="text-xl font-semibold mb-2">Check out the latest FIATA Association Magazine:</p>
-            <p className="text-2xl font-bold">FIATA Review – March 2025</p>
+            <p className="text-xl font-semibold mb-2">{t('fiata_pages.home.insights_magazine_title')}</p>
+            <p className="text-2xl font-bold">{t('fiata_pages.home.insights_magazine_name')}</p>
           </div>
           <a
             href="https://www.flipsnack.com/fiata/fiata-review-march-2025/full-view.html"
@@ -182,7 +183,7 @@ const FiataHome = () => {
             rel="noopener noreferrer"
             className="inline-block bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg text-lg font-semibold transition"
           >
-            Read the Magazine
+            {t('fiata_pages.home.insights_button')}
           </a>
         </div>
       </div>

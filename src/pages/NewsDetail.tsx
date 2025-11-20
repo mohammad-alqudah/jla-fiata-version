@@ -3,8 +3,10 @@ import { Calendar, User, ArrowRight, ArrowLeft, Image as ImageIcon } from 'lucid
 import { newsItems } from '../data/newsData';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useTranslation } from 'react-i18next';
 
 export default function NewsDetail() {
+  const { t, i18n } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const newsId = parseInt(id || '1');
   const news = newsItems.find(item => item.id === newsId);
@@ -13,9 +15,9 @@ export default function NewsDetail() {
     return (
       <div className="min-h-screen flex items-center justify-center ">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-slate-900 mb-4">الخبر غير موجود</h1>
+          <h1 className="text-4xl font-bold text-slate-900 mb-4">{t("news_detail.not_found")}</h1>
           <Link to="/" className="text-red-600 hover:text-red-700">
-            العودة إلى الصفحة الرئيسية
+            {t("news_detail.back_to_home")}
           </Link>
         </div>
       </div>
@@ -63,7 +65,7 @@ export default function NewsDetail() {
               <div className="flex items-center gap-6 text-white/90">
                 <div className="flex items-center gap-2">
                   <Calendar size={18} />
-                  <span>{new Date(news.date).toLocaleDateString('ar-JO', {
+                  <span>{new Date(news.date).toLocaleDateString(i18n.language === 'ar' ? 'ar-JO' : 'en-US', {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric'
@@ -86,8 +88,8 @@ export default function NewsDetail() {
                   to="/#news"
                   className="inline-flex items-center text-red-600 hover:text-red-700 font-medium"
                 >
-                  <ArrowLeft size={20} className="ml-2" />
-                  العودة إلى الأخبار
+                  <ArrowLeft size={20} className={i18n.language === 'ar' ? 'ml-2' : 'mr-2'} />
+                  {t("news_detail.back_to_news")}
                 </Link>
               </div>
 
@@ -102,7 +104,7 @@ export default function NewsDetail() {
                 <div className="bg-white rounded-lg shadow-lg p-6 border-t-4 border-red-600">
                   <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
                     <ArrowRight className="text-red-600" size={24} />
-                    أخبار ذات صلة
+                    {t("news_detail.related_news")}
                   </h3>
                   <div className="space-y-6">
                     {sidebarNews.map((item) => (
@@ -127,8 +129,8 @@ export default function NewsDetail() {
                               {item.title}
                             </h4>
                             <div className="flex items-center text-xs text-slate-500">
-                              <Calendar size={12} className="ml-1" />
-                              <span>{new Date(item.date).toLocaleDateString('ar-JO', {
+                              <Calendar size={12} className={i18n.language === 'ar' ? 'ml-1' : 'mr-1'} />
+                              <span>{new Date(item.date).toLocaleDateString(i18n.language === 'ar' ? 'ar-JO' : 'en-US', {
                                 year: 'numeric',
                                 month: 'short',
                                 day: 'numeric'
@@ -156,7 +158,7 @@ export default function NewsDetail() {
                   <ArrowRight className="text-white" size={24} />
                 </div>
                 <h2 className="text-3xl font-bold text-slate-900">
-                  أخبار ذات صلة
+                  {t("news_detail.related_news")}
                 </h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -180,8 +182,8 @@ export default function NewsDetail() {
                     </div>
                     <div className="p-6">
                       <div className="flex items-center text-slate-500 text-sm mb-3">
-                        <Calendar size={16} className="ml-2" />
-                        <span>{new Date(item.date).toLocaleDateString('ar-JO', {
+                        <Calendar size={16} className={i18n.language === 'ar' ? 'ml-2' : 'mr-2'} />
+                        <span>{new Date(item.date).toLocaleDateString(i18n.language === 'ar' ? 'ar-JO' : 'en-US', {
                           year: 'numeric',
                           month: 'long',
                           day: 'numeric'
@@ -194,8 +196,8 @@ export default function NewsDetail() {
                         {item.excerpt}
                       </p>
                       <div className="flex items-center text-red-600 font-medium">
-                        اقرأ المزيد
-                        <ArrowRight size={18} className="mr-2 group-hover:-translate-x-1 transition-transform duration-200" />
+                        {t("Read More")}
+                        <ArrowRight size={18} className={i18n.language === 'ar' ? 'mr-2' : 'ml-2'} style={{transform: i18n.language === 'ar' ? 'none' : 'none'}} />
                       </div>
                     </div>
                   </Link>
@@ -212,7 +214,7 @@ export default function NewsDetail() {
                 <ImageIcon className="text-white" size={24} />
               </div>
               <h2 className="text-3xl font-bold text-slate-900">
-                معرض الصور
+                {t("news_detail.gallery")}
               </h2>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -223,11 +225,11 @@ export default function NewsDetail() {
                 >
                   <img
                     src={image}
-                    alt={`معرض الصور ${index + 1}`}
+                    alt={`${t("news_detail.gallery")} ${index + 1}`}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
-                    <span className="text-white font-medium">عرض الصورة</span>
+                    <span className="text-white font-medium">{t("news_detail.view_image")}</span>
                   </div>
                 </div>
               ))}

@@ -7,23 +7,23 @@ import Footer from '../components/Footer';
 import { useTranslation } from 'react-i18next';
 
 export default function AllNews() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('الكل');
+  const [selectedCategory, setSelectedCategory] = useState<string>(t('all_news.all'));
 
   const categories = useMemo(() => {
     const cats = newsItems.map(item => item.category);
-    return ['الكل', ...Array.from(new Set(cats))];
-  }, []);
+    return [t('all_news.all'), ...Array.from(new Set(cats))];
+  }, [t]);
 
   const filteredNews = useMemo(() => {
     return newsItems.filter(item => {
       const matchesSearch = item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           item.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesCategory = selectedCategory === 'الكل' || item.category === selectedCategory;
+      const matchesCategory = selectedCategory === t('all_news.all') || item.category === selectedCategory;
       return matchesSearch && matchesCategory;
     });
-  }, [searchTerm, selectedCategory]);
+  }, [searchTerm, selectedCategory, t]);
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -46,7 +46,7 @@ export default function AllNews() {
                 <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
                 <input
                   type="text"
-                  placeholder="ابحث في الأخبار..."
+                  placeholder={t('all_news.search_placeholder')}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full pr-10 pl-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all"
@@ -55,7 +55,7 @@ export default function AllNews() {
 
               <div className="flex items-center gap-2">
                 <Filter size={20} className="text-slate-600" />
-                <span className="text-slate-600 font-medium">التصنيف:</span>
+                <span className="text-slate-600 font-medium">{t('all_news.filter_label')}</span>
               </div>
             </div>
 
@@ -78,7 +78,7 @@ export default function AllNews() {
 
           <div className="mb-6">
             <p className="text-slate-600">
-              <span className="font-semibold text-slate-900">{filteredNews.length}</span> {filteredNews.length === 1 ? 'خبر' : 'أخبار'} {selectedCategory !== 'الكل' && `في تصنيف "${selectedCategory}"`}
+              <span className="font-semibold text-slate-900">{filteredNews.length}</span> {filteredNews.length === 1 ? t('all_news.news_count_one') : t('all_news.news_count')} {selectedCategory !== t('all_news.all') && `${t('all_news.in_category')} "${selectedCategory}"`}
             </p>
           </div>
 
@@ -87,10 +87,10 @@ export default function AllNews() {
               <div className="bg-white rounded-lg p-12 shadow-md">
                 <Search size={64} className="mx-auto text-slate-300 mb-4" />
                 <h3 className="text-2xl font-bold text-slate-900 mb-2">
-                  لا توجد نتائج
+                  {t('all_news.no_results')}
                 </h3>
                 <p className="text-slate-600">
-                  لم نجد أي أخبار تطابق بحثك. جرب كلمات مفتاحية أخرى.
+                  {t('all_news.no_results_message')}
                 </p>
               </div>
             </div>
@@ -117,8 +117,8 @@ export default function AllNews() {
 
                   <div className="p-6">
                     <div className="flex items-center text-slate-500 text-sm mb-3">
-                      <Calendar size={16} className="ml-2" />
-                      <span>{new Date(item.date).toLocaleDateString('ar-JO', {
+                      <Calendar size={16} className={i18n.language === 'ar' ? 'ml-2' : 'mr-2'} />
+                      <span>{new Date(item.date).toLocaleDateString(i18n.language === 'ar' ? 'ar-JO' : 'en-US', {
                         year: 'numeric',
                         month: 'long',
                         day: 'numeric'
@@ -134,8 +134,8 @@ export default function AllNews() {
                     </p>
 
                     <div className="flex items-center text-red-600 font-medium">
-                      اقرأ المزيد
-                      <ArrowRight size={18} className="mr-2 group-hover:-translate-x-1 transition-transform duration-200" />
+                      {t('all_news.read_more')}
+                      <ArrowRight size={18} className={i18n.language === 'ar' ? 'mr-2' : 'ml-2'} />
                     </div>
                   </div>
                 </Link>

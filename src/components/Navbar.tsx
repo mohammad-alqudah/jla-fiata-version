@@ -1,5 +1,5 @@
 
-import {  useState } from 'react';
+import {  useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, User, LogOut , ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -13,9 +13,13 @@ const Header = () => {
   const [isMoreOpen, setIsMoreOpen] = useState(false);
   const [isFiataOpen, setIsFiataOpen] = useState(false);
  
-  const [language, setLanguage] = useState("ar")
   const location = useLocation();
   const { t, i18n } = useTranslation();
+  const [language, setLanguage] = useState(i18n.language);
+
+  useEffect(() => {
+    setLanguage(i18n.language);
+  }, [i18n.language]);
  
 
 //   const navItems = [t('home'),t('courses'),t('news'),t('contactUs')];
@@ -49,17 +53,17 @@ const Header = () => {
   ];
 
   const fiataNavigation = [
-    { name: 'FIATA Home', href: '/fiata' },
-    { name: 'About FIATA', href: '/fiata/about' },
-    { name: 'JLA as FIATA Member', href: '/fiata/jla-member' },
-    { name: 'Diploma Programs', href: '/fiata/programs' },
-    { name: 'Diploma in Freight Forwarding', href: '/fiata/diploma-details' },
-    { name: 'Industry Updates', href: '/fiata/updates' },
-    { name: 'Media Centre', href: '/fiata/media' },
-    { name: 'Diploma Holders', href: '/fiata/holders' },
-    { name: 'Certified Experts', href: '/fiata/experts' },
-    { name: 'FAQs', href: '/fiata/faqs' },
-    { name: 'Contact', href: '/fiata/contact' },
+    { name: 'header.fiataHome', href: '/fiata' },
+    { name: 'header.aboutFiata', href: '/fiata/about' },
+    { name: 'header.jlaAsFiataMember', href: '/fiata/jla-member' },
+    { name: 'header.diplomaPrograms', href: '/fiata/programs' },
+    { name: 'header.diplomaInFreightForwarding', href: '/fiata/diploma-details' },
+    { name: 'header.industryUpdates', href: '/fiata/updates' },
+    { name: 'header.mediaCentre', href: '/fiata/media' },
+    { name: 'header.diplomaHolders', href: '/fiata/holders' },
+    { name: 'header.certifiedExperts', href: '/fiata/experts' },
+    { name: 'header.faqs', href: '/fiata/faqs' },
+    { name: 'header.fiataContact', href: '/fiata/contact' },
   ];
 
 
@@ -71,13 +75,9 @@ const Header = () => {
 
   const isActive = (path: string) => location.pathname === path;
     const changeLanguage = () => {
-    if (language == "en") {
-      setLanguage("ar");
-      i18n.changeLanguage("ar");
-    }else{
-      setLanguage("en");
-      i18n.changeLanguage("en");
-    }
+    const newLang = i18n.language === "en" ? "ar" : "en";
+    setLanguage(newLang);
+    i18n.changeLanguage(newLang);
   }
 
 
@@ -137,7 +137,7 @@ const Header = () => {
                       }`}
                       onClick={() => setIsFiataOpen(false)}
                     >
-                      {item.name}
+                      {t(item.name)}
                     </Link>
                   ))}
                 </div>
