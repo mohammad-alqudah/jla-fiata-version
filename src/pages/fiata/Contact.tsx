@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { MapPin, Phone, Mail, Globe, Facebook, Linkedin, Send } from 'lucide-react';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -41,7 +43,7 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Form submission will be implemented. For now, please email fiata@jla.jo');
+    alert(t('fiata_pages.contact.form_submit_alert'));
   };
 
   return (
@@ -50,8 +52,8 @@ const Contact = () => {
 
       <div className="relative h-80 bg-gradient-to-r from-blue-700 to-blue-900 flex items-center justify-center">
         <div className="text-center text-white px-4">
-          <h1 className="text-5xl font-bold mb-4">Contact Us</h1>
-          <p className="text-xl">Get in Touch with the Jordanian Logistics Association</p>
+          <h1 className="text-5xl font-bold mb-4">{t('fiata_pages.contact.hero_title')}</h1>
+          <p className="text-xl">{t('fiata_pages.contact.hero_subtitle')}</p>
         </div>
       </div>
 
@@ -61,15 +63,15 @@ const Contact = () => {
             <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
               <MapPin className="w-8 h-8 text-blue-600" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">Address</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-3">{t('fiata_pages.contact.address_title')}</h3>
             <p className="text-gray-700 leading-relaxed">
-              Shmeissani, Yousef Bin Tashfeen Str., Bldg.18<br />
-              P.O Box 941329<br />
-              Amman 11194, Jordan
+              {t('fiata_pages.contact.address_line1')}<br />
+              {t('fiata_pages.contact.address_line2')}<br />
+              {t('fiata_pages.contact.address_line3')}
             </p>
             <button className="mt-4 text-blue-600 hover:text-blue-700 font-semibold flex items-center gap-2">
               <MapPin className="w-4 h-4" />
-              View Map
+              {t('fiata_pages.contact.view_map')}
             </button>
           </div>
 
@@ -77,13 +79,13 @@ const Contact = () => {
             <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
               <Phone className="w-8 h-8 text-green-600" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">Phone & WhatsApp</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-3">{t('fiata_pages.contact.phone_title')}</h3>
             <p className="text-gray-700 mb-2">
-              <span className="font-semibold">Phone:</span><br />
+              <span className="font-semibold">{t('fiata_pages.contact.phone_label')}</span><br />
               <a href="tel:+96265658094" className="hover:text-blue-600">+962-6-5658094</a>
             </p>
             <p className="text-gray-700">
-              <span className="font-semibold">WhatsApp:</span><br />
+              <span className="font-semibold">{t('fiata_pages.contact.whatsapp_label')}</span><br />
               <a href="https://wa.me/962793555761" className="hover:text-blue-600">+962-793555761</a>
             </p>
           </div>
@@ -92,13 +94,13 @@ const Contact = () => {
             <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
               <Mail className="w-8 h-8 text-purple-600" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">Email & Website</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-3">{t('fiata_pages.contact.email_title')}</h3>
             <p className="text-gray-700 mb-2">
-              <span className="font-semibold">Email:</span><br />
+              <span className="font-semibold">{t('fiata_pages.contact.email_label')}</span><br />
               <a href="mailto:fiata@jla.jo" className="hover:text-blue-600">fiata@jla.jo</a>
             </p>
             <p className="text-gray-700">
-              <span className="font-semibold">Website:</span><br />
+              <span className="font-semibold">{t('fiata_pages.contact.website_label')}</span><br />
               <a href="http://www.JLAFIATA.jo" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">www.JLAFIATA.jo</a>
             </p>
           </div>
@@ -106,7 +108,7 @@ const Contact = () => {
 
         <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
           <div className="flex items-center justify-center gap-6 mb-6">
-            <h3 className="text-2xl font-bold text-gray-900">Follow Us</h3>
+            <h3 className="text-2xl font-bold text-gray-900">{t('fiata_pages.contact.follow_us_title')}</h3>
             <div className="flex gap-4">
               <a
                 href="https://facebook.com/jla"
@@ -129,12 +131,12 @@ const Contact = () => {
         </div>
 
         <div className="bg-white rounded-lg shadow-lg p-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Send Us an Inquiry</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">{t('fiata_pages.contact.form_title')}</h2>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-gray-700 font-semibold mb-2">
-                  Full Name <span className="text-red-600">*</span>
+                  {t('fiata_pages.contact.full_name_label')} <span className="text-red-600">{t('fiata_pages.contact.required_field')}</span>
                 </label>
                 <input
                   type="text"
@@ -148,7 +150,7 @@ const Contact = () => {
 
               <div>
                 <label className="block text-gray-700 font-semibold mb-2">
-                  Email Address <span className="text-red-600">*</span>
+                  {t('fiata_pages.contact.email_address_label')} <span className="text-red-600">{t('fiata_pages.contact.required_field')}</span>
                 </label>
                 <input
                   type="email"
@@ -163,21 +165,21 @@ const Contact = () => {
 
             <div>
               <label className="block text-gray-700 font-semibold mb-2">
-                Phone Number (with country code)
+                {t('fiata_pages.contact.phone_number_label')}
               </label>
               <input
                 type="tel"
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                placeholder="+962-XXX-XXXXXX"
+                placeholder={t('fiata_pages.contact.phone_placeholder')}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
               />
             </div>
 
             <div>
               <label className="block text-gray-700 font-semibold mb-2">
-                Preferred Language
+                {t('fiata_pages.contact.preferred_language_label')}
               </label>
               <div className="flex flex-wrap gap-4">
                 <label className="flex items-center">
@@ -187,7 +189,7 @@ const Contact = () => {
                     onChange={() => handleLanguageChange('English')}
                     className="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-600"
                   />
-                  <span className="ml-2 text-gray-700">English</span>
+                  <span className="ml-2 text-gray-700">{t('fiata_pages.contact.english_label')}</span>
                 </label>
                 <label className="flex items-center">
                   <input
@@ -196,7 +198,7 @@ const Contact = () => {
                     onChange={() => handleLanguageChange('Arabic')}
                     className="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-600"
                   />
-                  <span className="ml-2 text-gray-700">Arabic</span>
+                  <span className="ml-2 text-gray-700">{t('fiata_pages.contact.arabic_label')}</span>
                 </label>
               </div>
               <input
@@ -204,7 +206,7 @@ const Contact = () => {
                 name="otherLanguage"
                 value={formData.otherLanguage}
                 onChange={handleInputChange}
-                placeholder="Other (please specify)"
+                placeholder={t('fiata_pages.contact.other_language_placeholder')}
                 className="w-full mt-3 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
               />
             </div>
@@ -212,7 +214,7 @@ const Contact = () => {
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-gray-700 font-semibold mb-2">
-                  Current Role / Occupation
+                  {t('fiata_pages.contact.current_role_label')}
                 </label>
                 <input
                   type="text"
@@ -225,7 +227,7 @@ const Contact = () => {
 
               <div>
                 <label className="block text-gray-700 font-semibold mb-2">
-                  Organization / Company Name
+                  {t('fiata_pages.contact.organization_label')}
                 </label>
                 <input
                   type="text"
@@ -240,7 +242,7 @@ const Contact = () => {
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-gray-700 font-semibold mb-2">
-                  Industry Sector
+                  {t('fiata_pages.contact.industry_sector_label')}
                 </label>
                 <input
                   type="text"
@@ -253,7 +255,7 @@ const Contact = () => {
 
               <div>
                 <label className="block text-gray-700 font-semibold mb-2">
-                  Years of Experience
+                  {t('fiata_pages.contact.years_experience_label')}
                 </label>
                 <select
                   name="yearsExperience"
@@ -261,18 +263,18 @@ const Contact = () => {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                 >
-                  <option value="">Select...</option>
-                  <option value="0-1">0–1 years</option>
-                  <option value="2-4">2–4 years</option>
-                  <option value="5-7">5–7 years</option>
-                  <option value="8+">8+ years</option>
+                  <option value="">{t('fiata_pages.contact.select_option')}</option>
+                  <option value="0-1">{t('fiata_pages.contact.experience_0_1')}</option>
+                  <option value="2-4">{t('fiata_pages.contact.experience_2_4')}</option>
+                  <option value="5-7">{t('fiata_pages.contact.experience_5_7')}</option>
+                  <option value="8+">{t('fiata_pages.contact.experience_8_plus')}</option>
                 </select>
               </div>
             </div>
 
             <div>
               <label className="block text-gray-700 font-semibold mb-2">
-                Location (City/Country)
+                {t('fiata_pages.contact.location_label')}
               </label>
               <input
                 type="text"
@@ -285,7 +287,7 @@ const Contact = () => {
 
             <div>
               <label className="block text-gray-700 font-semibold mb-2">
-                Message / Specific Inquiry <span className="text-red-600">*</span>
+                {t('fiata_pages.contact.message_label')} <span className="text-red-600">{t('fiata_pages.contact.required_field')}</span>
               </label>
               <textarea
                 name="message"
@@ -307,7 +309,7 @@ const Contact = () => {
                   className="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-600 mt-1"
                 />
                 <span className="ml-2 text-gray-700">
-                  I agree to receive emails or phone calls from JLA regarding my inquiry.
+                  {t('fiata_pages.contact.agree_contact')}
                 </span>
               </label>
 
@@ -320,7 +322,7 @@ const Contact = () => {
                   className="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-600 mt-1"
                 />
                 <span className="ml-2 text-gray-700">
-                  I would like to subscribe to the JLA newsletter for updates and opportunities.
+                  {t('fiata_pages.contact.subscribe_newsletter')}
                 </span>
               </label>
             </div>
@@ -330,7 +332,7 @@ const Contact = () => {
               className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-semibold text-lg transition flex items-center justify-center gap-2"
             >
               <Send className="w-5 h-5" />
-              Submit Inquiry
+              {t('fiata_pages.contact.submit_button')}
             </button>
           </form>
         </div>

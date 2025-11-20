@@ -1,8 +1,10 @@
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { GraduationCap } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const DiplomaHolders = () => {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
@@ -12,15 +14,15 @@ const DiplomaHolders = () => {
           <div className="flex justify-center mb-4">
             <GraduationCap className="w-16 h-16" />
           </div>
-          <h1 className="text-5xl font-bold mb-4">FIATA Diploma Holders in Jordan</h1>
-          <p className="text-xl">Celebrating Our Graduates</p>
+          <h1 className="text-5xl font-bold mb-4">{t('fiata_pages.diplomaHolders.hero_title')}</h1>
+          <p className="text-xl">{t('fiata_pages.diplomaHolders.hero_subtitle')}</p>
         </div>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 py-16">
         <div className="text-center mb-12">
           <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            This page displays lists of graduates who have successfully completed the FIATA Diploma in Freight Forwarding in Jordan. These professionals have demonstrated their commitment to excellence in logistics and freight forwarding.
+            {t('fiata_pages.diplomaHolders.intro')}
           </p>
         </div>
 
@@ -43,16 +45,16 @@ const DiplomaHolders = () => {
             />
           </div>
 
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">2025 FIATA Diploma in Freight Forwarding</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">{t('fiata_pages.diplomaHolders.year2025_title')}</h2>
 
           <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded mb-6">
-            <p className="text-blue-900 font-semibold mb-2">Class of 2025</p>
-            <p className="text-blue-800">Diploma holders list will be published upon course completion.</p>
+            <p className="text-blue-900 font-semibold mb-2">{t('fiata_pages.diplomaHolders.year2025_class')}</p>
+            <p className="text-blue-800">{t('fiata_pages.diplomaHolders.year2025_notice')}</p>
           </div>
 
           <div className="bg-gray-50 rounded-lg p-6">
             <p className="text-gray-700 text-center italic">
-              The list of graduates will be displayed here once the 2025 cohort completes the program.
+              {t('fiata_pages.diplomaHolders.year2025_message')}
             </p>
           </div>
         </div>
@@ -76,11 +78,11 @@ const DiplomaHolders = () => {
             />
           </div>
 
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">2026 FIATA Diploma in Freight Forwarding</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">{t('fiata_pages.diplomaHolders.year2026_title')}</h2>
 
           <div className="bg-gray-50 rounded-lg p-6">
             <p className="text-gray-700 text-center italic">
-              Applications for the 2026 cohort will open soon. Contact JLA for more information.
+              {t('fiata_pages.diplomaHolders.year2026_message')}
             </p>
           </div>
         </div>
@@ -104,32 +106,32 @@ const DiplomaHolders = () => {
             />
           </div>
 
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">2027 FIATA Diploma in Freight Forwarding</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">{t('fiata_pages.diplomaHolders.year2027_title')}</h2>
 
           <div className="bg-gray-50 rounded-lg p-6">
             <p className="text-gray-700 text-center italic">
-              Information about the 2027 cohort will be available in the future.
+              {t('fiata_pages.diplomaHolders.year2027_message')}
             </p>
           </div>
         </div>
 
         <div className="bg-gradient-to-r from-yellow-600 to-yellow-800 rounded-lg shadow-xl p-8 text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">Join Our Next Cohort</h3>
+          <h3 className="text-2xl font-bold mb-4">{t('fiata_pages.diplomaHolders.cta_title')}</h3>
           <p className="text-lg mb-6">
-            Become a FIATA Diploma holder and join the ranks of qualified logistics professionals in Jordan.
+            {t('fiata_pages.diplomaHolders.cta_description')}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href="/fiata/diploma-details"
               className="inline-block bg-white text-yellow-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition"
             >
-              View Program Details
+              {t('fiata_pages.diplomaHolders.cta_view_details')}
             </a>
             <a
               href="/fiata/contact"
               className="inline-block bg-yellow-700 hover:bg-yellow-900 text-white px-8 py-4 rounded-lg font-semibold transition border-2 border-white"
             >
-              Apply Now
+              {t('fiata_pages.diplomaHolders.cta_apply')}
             </a>
           </div>
         </div>
