@@ -2,24 +2,26 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { BookOpen, Award, TrendingUp, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const DiplomaPrograms = () => {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
 
       <div className="relative h-80 bg-gradient-to-r from-blue-700 to-blue-900 flex items-center justify-center">
         <div className="text-center text-white px-4">
-          <h1 className="text-5xl font-bold mb-4">FIATA Diploma Programs</h1>
-          <p className="text-xl">World-Class Professional Education in Logistics</p>
+          <h1 className="text-5xl font-bold mb-4">{t('fiata_pages.diplomaPrograms.hero_title')}</h1>
+          <p className="text-xl">{t('fiata_pages.diplomaPrograms.hero_subtitle')}</p>
         </div>
       </div>
 
       <div className="max-w-5xl mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Join a World-Class Diploma Program</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('fiata_pages.diplomaPrograms.main_title')}</h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            FIATA has developed minimum standards for professional education in freight forwarding and supply chain management. Based on these standards, there are two main FIATA diploma types.
+            {t('fiata_pages.diplomaPrograms.main_intro')}
           </p>
         </div>
 
@@ -29,42 +31,42 @@ const DiplomaPrograms = () => {
               <div className="bg-blue-100 p-3 rounded-full">
                 <BookOpen className="w-8 h-8 text-blue-600" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">FIATA Diploma in Freight Forwarding</h3>
+              <h3 className="text-2xl font-bold text-gray-900">{t('fiata_pages.diplomaPrograms.diploma1_title')}</h3>
             </div>
 
             <div className="mb-6">
               <div className="flex items-start gap-2 mb-3">
                 <CheckCircle className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
-                <span className="text-gray-700">Consists of 15 comprehensive modules</span>
+                <span className="text-gray-700">{t('fiata_pages.diplomaPrograms.diploma1_feature1')}</span>
               </div>
               <div className="flex items-start gap-2 mb-3">
                 <CheckCircle className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
-                <span className="text-gray-700">Covers multimodal transport operations</span>
+                <span className="text-gray-700">{t('fiata_pages.diplomaPrograms.diploma1_feature2')}</span>
               </div>
               <div className="flex items-start gap-2 mb-3">
                 <CheckCircle className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
-                <span className="text-gray-700">Air transport and cargo handling</span>
+                <span className="text-gray-700">{t('fiata_pages.diplomaPrograms.diploma1_feature3')}</span>
               </div>
               <div className="flex items-start gap-2 mb-3">
                 <CheckCircle className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
-                <span className="text-gray-700">Customs procedures and compliance</span>
+                <span className="text-gray-700">{t('fiata_pages.diplomaPrograms.diploma1_feature4')}</span>
               </div>
               <div className="flex items-start gap-2">
                 <CheckCircle className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
-                <span className="text-gray-700">Digital operations and technology</span>
+                <span className="text-gray-700">{t('fiata_pages.diplomaPrograms.diploma1_feature5')}</span>
               </div>
             </div>
 
             <div className="bg-blue-50 rounded-lg p-4 mb-6">
-              <p className="text-sm font-semibold text-blue-900 mb-1">Available in Jordan</p>
-              <p className="text-sm text-blue-700">Delivered by JLA - FIATA Association Member</p>
+              <p className="text-sm font-semibold text-blue-900 mb-1">{t('fiata_pages.diplomaPrograms.diploma1_available')}</p>
+              <p className="text-sm text-blue-700">{t('fiata_pages.diplomaPrograms.diploma1_delivered')}</p>
             </div>
 
             <Link
               to="/fiata/diploma-details"
               className="block text-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition"
             >
-              View Full Details
+              {t('fiata_pages.diplomaPrograms.diploma1_button')}
             </Link>
           </div>
 
@@ -73,42 +75,42 @@ const DiplomaPrograms = () => {
               <div className="bg-purple-100 p-3 rounded-full">
                 <Award className="w-8 h-8 text-purple-600" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">FIATA Higher Diploma in Supply Chain Management</h3>
+              <h3 className="text-2xl font-bold text-gray-900">{t('fiata_pages.diplomaPrograms.diploma2_title')}</h3>
             </div>
 
             <div className="mb-6">
               <div className="flex items-start gap-2 mb-3">
                 <CheckCircle className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
-                <span className="text-gray-700">Standalone advanced program</span>
+                <span className="text-gray-700">{t('fiata_pages.diplomaPrograms.diploma2_feature1')}</span>
               </div>
               <div className="flex items-start gap-2 mb-3">
                 <CheckCircle className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
-                <span className="text-gray-700">Progression pathway for professionals</span>
+                <span className="text-gray-700">{t('fiata_pages.diplomaPrograms.diploma2_feature2')}</span>
               </div>
               <div className="flex items-start gap-2 mb-3">
                 <CheckCircle className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
-                <span className="text-gray-700">Includes 8 specialized modules</span>
+                <span className="text-gray-700">{t('fiata_pages.diplomaPrograms.diploma2_feature3')}</span>
               </div>
               <div className="flex items-start gap-2 mb-3">
                 <CheckCircle className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
-                <span className="text-gray-700">Global purchasing strategies</span>
+                <span className="text-gray-700">{t('fiata_pages.diplomaPrograms.diploma2_feature4')}</span>
               </div>
               <div className="flex items-start gap-2">
                 <CheckCircle className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
-                <span className="text-gray-700">Production and operations management</span>
+                <span className="text-gray-700">{t('fiata_pages.diplomaPrograms.diploma2_feature5')}</span>
               </div>
             </div>
 
             <div className="bg-purple-50 rounded-lg p-4 mb-6">
-              <p className="text-sm font-semibold text-purple-900 mb-1">Coming Soon</p>
-              <p className="text-sm text-purple-700">Future expansion planned for Jordan</p>
+              <p className="text-sm font-semibold text-purple-900 mb-1">{t('fiata_pages.diplomaPrograms.diploma2_coming_soon')}</p>
+              <p className="text-sm text-purple-700">{t('fiata_pages.diplomaPrograms.diploma2_future')}</p>
             </div>
 
             <button
               disabled
               className="block w-full text-center bg-gray-300 text-gray-600 px-6 py-3 rounded-lg font-semibold cursor-not-allowed"
             >
-              Not Yet Available
+              {t('fiata_pages.diplomaPrograms.diploma2_not_available')}
             </button>
           </div>
         </div>
@@ -119,34 +121,34 @@ const DiplomaPrograms = () => {
               <TrendingUp className="w-8 h-8 text-green-600" />
             </div>
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">FIATA Training in Jordan</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('fiata_pages.diplomaPrograms.training_title')}</h2>
             </div>
           </div>
           <p className="text-gray-700 leading-relaxed mb-4">
-            In Jordan, the <strong>Jordanian Logistics Association (JLA)</strong> is accredited to deliver the <strong>FIATA Diploma in Freight Forwarding</strong>, with the potential to grow into further FIATA-aligned programs in the future.
+            {t('fiata_pages.diplomaPrograms.training_p1')}
           </p>
           <p className="text-gray-700 leading-relaxed">
-            This accreditation ensures that the training meets FIATA's rigorous international standards and provides participants with globally recognized qualifications that open doors to career opportunities worldwide.
+            {t('fiata_pages.diplomaPrograms.training_p2')}
           </p>
         </div>
 
         <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg shadow-xl p-8 text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">Ready to Start Your FIATA Journey?</h3>
+          <h3 className="text-2xl font-bold mb-4">{t('fiata_pages.diplomaPrograms.cta_title')}</h3>
           <p className="text-lg mb-6">
-            Explore the FIATA Diploma in Freight Forwarding and take the first step toward international recognition.
+            {t('fiata_pages.diplomaPrograms.cta_description')}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/fiata/diploma-details"
               className="inline-block bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition"
             >
-              View Diploma Details
+              {t('fiata_pages.diplomaPrograms.cta_view_details')}
             </Link>
             <Link
               to="/fiata/contact"
               className="inline-block bg-blue-700 hover:bg-blue-900 text-white px-8 py-4 rounded-lg font-semibold transition border-2 border-white"
             >
-              Contact Us
+              {t('fiata_pages.diplomaPrograms.cta_contact')}
             </Link>
           </div>
         </div>

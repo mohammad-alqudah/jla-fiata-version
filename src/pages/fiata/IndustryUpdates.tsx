@@ -1,45 +1,52 @@
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { Newspaper, ExternalLink } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const IndustryUpdates = () => {
+  const { t, i18n } = useTranslation();
   const updates = [
     {
-      title: 'FIATA Review – March 2025',
-      description: 'The latest edition of the FIATA Association Magazine featuring industry insights, policy updates, and global logistics trends. Stay informed about the latest developments in freight forwarding worldwide.',
+      title: t('fiata_pages.industryUpdates.updates.update1_title'),
+      description: t('fiata_pages.industryUpdates.updates.update1_description'),
       link: 'https://www.flipsnack.com/fiata/fiata-review-march-2025/full-view.html',
-      date: 'March 2025',
-      category: 'Magazine'
+      date: i18n.language === 'ar' ? 'مارس 2025' : 'March 2025',
+      category: t('fiata_pages.industryUpdates.updates.update1_category')
     },
     {
-      title: 'Global Freight Forwarding Standards Update',
-      description: 'FIATA announces new guidelines for digital documentation and e-freight initiatives, aimed at streamlining international trade processes and reducing paper-based transactions.',
-      date: 'February 2025',
-      category: 'Standards'
+      title: t('fiata_pages.industryUpdates.updates.update2_title'),
+      description: t('fiata_pages.industryUpdates.updates.update2_description'),
+      link: null,
+      date: i18n.language === 'ar' ? 'فبراير 2025' : 'February 2025',
+      category: t('fiata_pages.industryUpdates.updates.update2_category')
     },
     {
-      title: 'Sustainability in Logistics: FIATA Green Initiative',
-      description: 'New sustainability framework introduced for freight forwarders to measure and reduce carbon emissions across supply chain operations.',
-      date: 'January 2025',
-      category: 'Sustainability'
+      title: t('fiata_pages.industryUpdates.updates.update3_title'),
+      description: t('fiata_pages.industryUpdates.updates.update3_description'),
+      link: null,
+      date: i18n.language === 'ar' ? 'يناير 2025' : 'January 2025',
+      category: t('fiata_pages.industryUpdates.updates.update3_category')
     },
     {
-      title: 'Digital Transformation in Freight Forwarding',
-      description: 'Industry report on the adoption of blockchain, AI, and IoT technologies in modern logistics operations and their impact on efficiency and transparency.',
-      date: 'December 2024',
-      category: 'Technology'
+      title: t('fiata_pages.industryUpdates.updates.update4_title'),
+      description: t('fiata_pages.industryUpdates.updates.update4_description'),
+      link: null,
+      date: i18n.language === 'ar' ? 'ديسمبر 2024' : 'December 2024',
+      category: t('fiata_pages.industryUpdates.updates.update4_category')
     },
     {
-      title: 'Trade Facilitation and Customs Modernization',
-      description: 'FIATA collaborates with WCO on initiatives to harmonize customs procedures and accelerate cross-border trade facilitation globally.',
-      date: 'November 2024',
-      category: 'Policy'
+      title: t('fiata_pages.industryUpdates.updates.update5_title'),
+      description: t('fiata_pages.industryUpdates.updates.update5_description'),
+      link: null,
+      date: i18n.language === 'ar' ? 'نوفمبر 2024' : 'November 2024',
+      category: t('fiata_pages.industryUpdates.updates.update5_category')
     },
     {
-      title: 'Dangerous Goods Regulations Update',
-      description: 'Latest amendments to IATA Dangerous Goods Regulations and their implications for air cargo operations and safety compliance.',
-      date: 'October 2024',
-      category: 'Regulations'
+      title: t('fiata_pages.industryUpdates.updates.update6_title'),
+      description: t('fiata_pages.industryUpdates.updates.update6_description'),
+      link: null,
+      date: i18n.language === 'ar' ? 'أكتوبر 2024' : 'October 2024',
+      category: t('fiata_pages.industryUpdates.updates.update6_category')
     }
   ];
 
@@ -52,15 +59,15 @@ const IndustryUpdates = () => {
           <div className="flex justify-center mb-4">
             <Newspaper className="w-16 h-16" />
           </div>
-          <h1 className="text-5xl font-bold mb-4">FIATA Industry Updates</h1>
-          <p className="text-xl">Latest News and Developments in Freight Forwarding</p>
+          <h1 className="text-5xl font-bold mb-4">{t('fiata_pages.industryUpdates.hero_title')}</h1>
+          <p className="text-xl">{t('fiata_pages.industryUpdates.hero_subtitle')}</p>
         </div>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 py-16">
         <div className="text-center mb-12">
           <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Stay up to date with the latest news, policy updates, and industry developments from FIATA and the global freight forwarding community.
+            {t('fiata_pages.industryUpdates.intro')}
           </p>
         </div>
 
@@ -86,7 +93,7 @@ const IndustryUpdates = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 font-semibold"
                 >
-                  Read More <ExternalLink className="w-4 h-4" />
+                  {t('fiata_pages.industryUpdates.read_more')} <ExternalLink className="w-4 h-4" />
                 </a>
               )}
             </div>
@@ -96,28 +103,28 @@ const IndustryUpdates = () => {
         <div className="mt-16 bg-gradient-to-r from-teal-600 to-teal-800 rounded-lg shadow-xl p-8 text-white">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-2xl font-bold mb-4">FIATA Association Magazine</h3>
-              <p className="text-lg mb-2">Check out the latest FIATA Review</p>
-              <p className="text-3xl font-bold mb-6">March 2025 Edition</p>
+              <h3 className="text-2xl font-bold mb-4">{t('fiata_pages.industryUpdates.magazine_title')}</h3>
+              <p className="text-lg mb-2">{t('fiata_pages.industryUpdates.magazine_subtitle')}</p>
+              <p className="text-3xl font-bold mb-6">{t('fiata_pages.industryUpdates.magazine_edition')}</p>
               <a
                 href="https://www.flipsnack.com/fiata/fiata-review-march-2025/full-view.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white text-teal-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition"
               >
-                Read the Magazine <ExternalLink className="w-5 h-5" />
+                {t('fiata_pages.industryUpdates.magazine_button')} <ExternalLink className="w-5 h-5" />
               </a>
             </div>
             <div className="bg-white bg-opacity-10 rounded-lg p-6">
-              <h4 className="font-bold text-xl mb-3">Stay Connected</h4>
+              <h4 className="font-bold text-xl mb-3">{t('fiata_pages.industryUpdates.stay_connected_title')}</h4>
               <p className="mb-4">
-                Subscribe to receive updates about FIATA news, training opportunities, and industry developments.
+                {t('fiata_pages.industryUpdates.stay_connected_text')}
               </p>
               <a
                 href="/fiata/contact"
                 className="inline-block bg-teal-700 hover:bg-teal-900 text-white px-6 py-3 rounded-lg font-semibold transition border-2 border-white"
               >
-                Contact Us
+                {t('fiata_pages.industryUpdates.contact_us')}
               </a>
             </div>
           </div>

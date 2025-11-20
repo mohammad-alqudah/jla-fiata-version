@@ -14,12 +14,12 @@ export default function Slider() {
 const slides = [
     {
       id: 1,
-      title:"النقابة اللوجستية الاردنية" ,
-      description: "نسعى للارتقاء بصناعة الشحن في الاردن",
+      title: t('slider.slide0_title') ,
+      description: t('slider.slide0_description'),
       image: bg1,
     },
     {
-      id: 1,
+      id: 2,
       title:t('slide1_title') ,
       description: t('slide1_description'),
       image: bg4,
