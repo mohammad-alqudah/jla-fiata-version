@@ -40,7 +40,6 @@ const Header = () => {
     { name: 'header.news', href: '/all-news' },
     { name: 'header.contact', href: '/contact' },
     { name: 'header.partnerships', href: '/partnerships' },
-    { name: 'FIATA', href: '/fiata' },
   ];
   const allNavigation = [
       { name: 'header.home', href: '/' },
@@ -201,6 +200,38 @@ const Header = () => {
             ))}
              {/* <button onClick={() => changeLanguage()} className=" text-xs px-1 py-1 text-slate-600 hover:text-slate-900 border border-slate-300 rounded-lg hover:border-slate-400 transition-colors duration-200  ">                     {language=="en"?"Arabic":"الإنجليزية"}
                    </button> */}
+
+            {/* FIATA Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setIsFiataOpen(!isFiataOpen)}
+                className="flex items-center px-2 py-1 text-xs  text-gray-700 hover:text-red-600"
+              >
+                FIATA
+                <ChevronDown
+                  className={`h-3 w-3 ml-1 transition-transform ${isFiataOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+
+              {isFiataOpen && (
+                <div className="absolute left-3 mt-2 w-48 bg-white rounded-lg shadow-lg border py-2 z-50 max-h-[80vh] overflow-y-auto">
+                  {fiataNavigation.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className={`block px-4 py-2 text-sm ${
+                        isActive(item.href)
+                          ? 'text-red-600 bg-red-50'
+                          : 'text-gray-700 hover:text-red-600 hover:bg-gray-50'
+                      }`}
+                      onClick={() => setIsFiataOpen(false)}
+                    >
+                      {t(item.name)}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
 
             {/* More Dropdown */}
             <div className="relative">
