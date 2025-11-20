@@ -1,0 +1,147 @@
+{
+      "welcome": "Welcome to React and react-i18next"
+       ,
+      "view all courses":"View all courses",
+      "view all news":"View all news",
+      "register now":"Register now",
+      "contact": "Contact us",
+      "contact_message": "Have questions? We love to hear from you. Send us a message and we'll get back to you as soon as possible.",
+      "ourcourses": "Our Training Courses",
+      "course_description": "Explore a wide range of specialized training courses in the field of logistics and supply chain management.",
+      "lastNews": "Latest News",
+      "last_news_description": "Stay updated with our latest announcements, achievements, and industry insights."
+      ,
+      "Decleartion": "Who is the Jordanian Logistics Union",
+      "decleartion_paragraph1": "The Jordanian Logistics Union is a non-governmental organization specializing in providing logistics services in the region. We aim to facilitate the supply process and improve the customer experience.",
+      "decleartion_paragraph2": "Since the establishment of the union, there has been continuous support and backing from official and public entities, as well as the International Federation of Freight Forwarders Associations (FIATA).",
+      "decleartion_paragraph3": "The Jordanian Logistics Union is part of a larger regional logistics organization in Jordan, which is a non-governmental organization focused on logistics services in the region. We aim to simplify the supply process and enhance customer satisfaction."
+      ,
+      "view": "Our Vision",
+      "vision_description": "To be the leading logistics union in Jordan, known for its excellence in service delivery and customer satisfaction.",
+      "mission": "Our Mission",
+      "mission_description": "To develop and enhance the services provided to freight forwarders (land, sea, air) and logistics service providers in support of the national economy.",
+      "values": "Our Values",
+      "values_description": "We are committed to providing high-quality logistics services that meet the needs of our customers. We strive to exceed expectations and build long-term relationships with our partners.",
+      "slide1_title": "Welcome to Our Platform",
+      "slide1_description": "Discover amazing solutions for your business needs",
+      "slide2_title": "Innovation at Its Best",
+      "slide2_description": "We leading the way with cutting-edge technology",
+      "slide3_title": "Excellence in Service",
+      "slide3_description": "We are committed to providing top-notch service that exceeds customer expectations.",
+      "signOut": "Sign Out",
+      "home": "Home",
+      "news": "News",
+      "contactUs": "Contact Us",
+      "footer.footer": "Advancing Jordan's logistics sector through professional development, industry standards, and collaborative partnerships.",
+      "Our Mission": "مهمتنا",
+    "Our Vision": "رؤيتنا",
+    "To advance the logistics industry in Jordan through professional development, industry standards, and collaborative partnerships that drive economic growth.": "الارتقاء بقطاع الخدمات اللوجستية في الأردن من خلال التطوير المهني والمعايير الصناعية والشراكات التعاونية التي تعزز النمو الاقتصادي.",
+    "To position Jordan as the leading logistics hub in the Middle East, connecting continents and facilitating global trade.": "تسعى إلى جعل الأردن مركزًا لوجستيًا رائدًا في الشرق الأوسط، يربط القارات ويسهّل التجارة العالمية.",
+    "missions": {
+    "title": "Our Mission",
+    "description": "To advance the logistics industry in Jordan through professional development, industry standards, and collaborative partnerships that drive economic growth."
+  },
+  "vision": {
+    "title": "Our Vision",
+    "description": "To position Jordan as the leading logistics hub in the Middle East, connecting continents and facilitating global trade."
+  },
+  "value": {
+    "title": "Our Values",
+    "description": "Excellence, integrity, innovation, and collaboration guide everything we do as we serve our members and the logistics community."
+  },
+    "about": {
+    "title": "About JLA",
+    "subtitle": "Leading Jordan's logistics industry towards excellence, innovation, and sustainable growth"
+  },
+   "leadership": {
+    "title": "Leadership Team",
+    "subtitle": "Meet the leaders driving JLA's mission forward"
+  },
+    "journey": {
+    "title": "Our Journey",
+    "subtitle": "Key milestones in JLA's development"
+  },
+  
+ 
+
+  "contact_section": {
+    "form_title": "Contact Us",
+    "full_name": "Full Name",
+    "email": "Email Address",
+    "subject": "Subject",
+    "message": "Message",
+    "select_subject": "Select a subject",
+    "phone": "Phone Number",
+ 
+
+    "subjects": {
+      "general": "General Inquiry",
+      "membership": "Membership Information",
+      "training": "Training Programs",
+      "events": "Events & Conferences",
+      "partnership": "Partnership Opportunities",
+      "media": "Media & Press",
+      "other": "Other"
+    },
+    "send": "Send Message",
+    "location_title": "Association Location",
+    "address_label": "Address:",
+    "address_value": "Shmeissani, Yousef Bin Tashfeen Str., Bldg.18"
+  
+  },
+  "login_page": {
+    "title": "Login",
+    "email_label": "Email Address",
+    "password_label": "Password",
+    "email_placeholder": "your@email.com",
+    "password_placeholder": "••••••••",
+    "login_button": "Login",
+    "logging_in": "Logging in...",
+    "no_account": "Don't have an account?",
+    "register_link": "Register as a member"
+  },
+   "news_page": {
+    "title": "All News",
+    "subtitle": "Browse all our news and stay updated with the latest developments and achievements"
+  },
+
+
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "news": "News",
+    "contact": "Contact",
+    "partnerships": "Partnerships",
+    "dashboard": "Dashboard",
+    "directory": "Directory",
+    "resources": "Resources",
+    "memberArea": "Member Area",
+    "memberLogin": "Member Login",
+    "more": "More",
+    "logout": "Logout",
+    "associationName": "Jordanian Logistics Association",
+    "associationArabic": "النقابة اللوجستية الأردنية"
+  },
+  "fiata": {
+    "title": "FIATA Diploma in Freight Forwarding",
+    "description": "The Jordanian Logistics Association (JLA) offers the globally recognized FIATA Diploma in Freight Forwarding, the world's leading qualification for logistics and transport professionals.",
+    "programOverview": "This internationally recognized diploma equips aspiring and current professionals with the critical knowledge and practical skills needed to thrive in the global transport and logistics industry. Aligned with FIATA standards and structured around comprehensive modules, the program enables participants to master freight forwarding operations, understand international transport systems, navigate global regulations, and develop pricing and operational efficiency skills."
+  },  
+  "Read More": "Read More",
+  "footer": {
+    "Quick Links": "Quick Links",
+    "home": "Home",
+    "aboutUs": "About Us",
+    "news": "News",
+    "signIn": "Sign In",
+    "register": "Register"
+  }
+  
+
+}
+ 
+      
+
+
+    

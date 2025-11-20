@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Cairo', sans-serif;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  .animate-fade-in-delay {
+    animation: fadeIn 1s ease-in-out 0.3s both;
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+  .bg-letter {
+    background-image: url('../src/assets/about-bg.jpg');
+    background-size: auto;
+    background-position: center;
+   
+    
+  }
