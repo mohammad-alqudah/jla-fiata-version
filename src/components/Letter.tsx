@@ -7,9 +7,9 @@ export default function LogisticsUnion() {
   const { t } = useTranslation();
   return (
    <>
-      <div className=" px-10">
+      <div className="w-full">
         <div className={`bg-auto bg-repeat md:bg-cover bg-center py-12 bg-letter bg-blend-lighten bg-white/70 `}  >
-          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 grid-cols-1 gap-10">
+          <div className="max-w-7xl mx-auto px-10 grid lg:grid-cols-2 grid-cols-1 gap-10">
           <div  >
               {/* Header */}
             <h1 className="text-xl md:text-4xl font-bold text-gray-900 text-center mb-5">
