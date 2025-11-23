@@ -1,6 +1,6 @@
 
 import {  useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, User, LogOut , ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import logo from '../assets/logo.jpeg';
@@ -14,12 +14,25 @@ const Header = () => {
   const [isFiataOpen, setIsFiataOpen] = useState(false);
  
   const location = useLocation();
+  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const [language, setLanguage] = useState(i18n.language);
 
   useEffect(() => {
     setLanguage(i18n.language);
   }, [i18n.language]);
+
+  useEffect(() => {
+    // Handle hash-based scrolling when on home page
+    if (location.pathname === '/' && location.hash === '#contact') {
+      setTimeout(() => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [location.pathname, location.hash]);
  
 
 //   const navItems = [t('home'),t('courses'),t('news'),t('contactUs')];
@@ -79,6 +92,25 @@ const Header = () => {
     i18n.changeLanguage(newLang);
   }
 
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      navigate('/');
+      // Scroll after navigation to home page
+      setTimeout(() => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }
+
 
 
 
@@ -101,9 +133,10 @@ const Header = () => {
             {allNavigation.map((item) => (
               <Link
                 key={item.name}
-                to={item.href}
+                to={item.href === '/contact' ? '/' : item.href}
+                onClick={item.href === '/contact' ? handleContactClick : undefined}
                 className={`px-2 py-2 text-xs  font-medium transition-colors ${
-                  isActive(item.href)
+                  isActive(item.href) || (item.href === '/contact' && location.pathname === '/' && location.hash === '#contact')
                     ? 'text-red-600 border-b-2 border-red-600'
                     : 'text-gray-700 hover:text-red-600'
                 }`}
@@ -250,13 +283,18 @@ const Header = () => {
                   {moreNavigation.map((item) => (
                     <Link
                       key={item.name}
-                      to={item.href}
+                      to={item.href === '/contact' ? '/' : item.href}
+                      onClick={(e) => {
+                        if (item.href === '/contact') {
+                          handleContactClick(e);
+                        }
+                        setIsMoreOpen(false);
+                      }}
                       className={`block px-4 py-2 text-sm ${
-                        isActive(item.href)
+                        isActive(item.href) || (item.href === '/contact' && location.pathname === '/' && location.hash === '#contact')
                           ? 'text-red-600 bg-red-50'
                           : 'text-gray-700 hover:text-red-600 hover:bg-gray-50'
                       }`}
-                      onClick={() => setIsMoreOpen(false)}
                     >
                       {t(item.name)}
                     </Link>
