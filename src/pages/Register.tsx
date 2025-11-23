@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { UserPlus, User, Building } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -6,6 +7,7 @@ import Footer from '../components/Footer';
 type UserType = 'job_seeker' | 'organization';
 
 export default function Register() {
+  const navigate = useNavigate();
   const [step, setStep] = useState<'type' | 'credentials'>('type');
   const [userType, setUserType] = useState<UserType | null>(null);
 
@@ -22,7 +24,7 @@ export default function Register() {
 
   const handleAuthSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('تم إنشاء الحساب بنجاح!');
+    navigate('/dashboard');
   };
 
   return (
