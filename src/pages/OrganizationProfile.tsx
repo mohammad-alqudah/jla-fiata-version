@@ -1,17 +1,10 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
-import { supabase } from '../lib/supabase';
+import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Building, CheckCircle } from 'lucide-react';
 
 export default function OrganizationProfile() {
-  const { user, profile } = useAuth();
-  const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState('');
 
   const [formData, setFormData] = useState({
     company_name_ar: '',
@@ -70,119 +63,10 @@ export default function OrganizationProfile() {
   const [representsCompanies, setRepresentsCompanies] = useState(['']);
   const [memberships, setMemberships] = useState(['', '', '']);
 
-  useEffect(() => {
-    if (!user) {
-      navigate('/login');
-      return;
-    }
-
-    if (profile?.user_type !== 'organization') {
-      navigate('/');
-      return;
-    }
-
-    loadOrganization();
-  }, [user, profile, navigate]);
-
-  const loadOrganization = async () => {
-    if (!user) return;
-
-    const { data, error } = await supabase
-      .from('organizations')
-      .select('*')
-      .eq('user_id', user.id)
-      .maybeSingle();
-
-    if (!error && data) {
-      setFormData({
-        company_name_ar: data.company_name_ar || '',
-        company_name_en: data.company_name_en || '',
-        registration_number: data.registration_number || '',
-        national_id: data.national_id || '',
-        authorized_person_name: data.authorized_person_name || '',
-        authorized_person_number: data.authorized_person_number || '',
-        company_type: data.company_type || '',
-        capital: data.capital || '',
-        years_experience: data.years_experience || 0,
-        city: data.city || '',
-        district: data.district || '',
-        street: data.street || '',
-        building_number: data.building_number || '',
-        phone: data.phone || '',
-        fax: data.fax || '',
-        mobile: data.mobile || '',
-        email: data.email || '',
-      });
-
-      if (data.branches_local) {
-        setBranches(prev => ({ ...prev, ...data.branches_local }));
-      }
-
-      if (data.activities) {
-        setActivities(prev => ({ ...prev, ...data.activities }));
-      }
-
-      if (data.employee_counts) {
-        setEmployees(prev => ({ ...prev, ...data.employee_counts }));
-      }
-
-      if (data.represents_companies && data.represents_companies.length > 0) {
-        setRepresentsCompanies(data.represents_companies);
-      }
-
-      if (data.other_memberships && data.other_memberships.length > 0) {
-        setMemberships(data.other_memberships);
-      }
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
-    setLoading(true);
-
-    try {
-      const organizationData = {
-        user_id: user!.id,
-        ...formData,
-        branches_local: branches,
-        activities,
-        employee_counts: employees,
-        represents_companies: representsCompanies.filter(c => c.trim() !== ''),
-        other_memberships: memberships.filter(m => m.trim() !== ''),
-        updated_at: new Date().toISOString(),
-      };
-
-      const { data: existing } = await supabase
-        .from('organizations')
-        .select('id')
-        .eq('user_id', user!.id)
-        .maybeSingle();
-
-      if (existing) {
-        const { error: updateError } = await supabase
-          .from('organizations')
-          .update(organizationData)
-          .eq('user_id', user!.id);
-
-        if (updateError) throw updateError;
-      } else {
-        const { error: insertError } = await supabase
-          .from('organizations')
-          .insert(organizationData);
-
-        if (insertError) throw insertError;
-      }
-
-      setSuccess(true);
-      setTimeout(() => {
-        navigate('/');
-      }, 2000);
-    } catch (err: any) {
-      setError(err.message || 'حدث خطأ أثناء حفظ البيانات');
-    } finally {
-      setLoading(false);
-    }
+    setSuccess(true);
+    setTimeout(() => setSuccess(false), 3000);
   };
 
   const totalEmployees = Object.values(employees).reduce((sum, val) => sum + val, 0);
@@ -202,12 +86,6 @@ export default function OrganizationProfile() {
             </div>
 
             <div className="p-8">
-              {error && (
-                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-                  <p className="text-red-600 text-sm text-center">{error}</p>
-                </div>
-              )}
-
               {success && (
                 <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
                   <div className="flex items-center justify-center gap-2">
@@ -658,10 +536,9 @@ export default function OrganizationProfile() {
 
                 <button
                   type="submit"
-                  disabled={loading}
-                  className="w-full bg-red-600 text-white py-4 rounded-lg font-medium text-lg hover:bg-red-700 transition-colors duration-200 disabled:opacity-50"
+                  className="w-full bg-red-600 text-white py-4 rounded-lg font-medium text-lg hover:bg-red-700 transition-colors duration-200"
                 >
-                  {loading ? 'جاري تقديم الطلب...' : 'تقديم الطلب'}
+                  تقديم الطلب
                 </button>
               </form>
             </div>

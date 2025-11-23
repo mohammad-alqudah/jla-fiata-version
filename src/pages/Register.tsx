@@ -1,18 +1,13 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
 import { UserPlus, User, Building } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { UserType } from '../lib/supabase';
+
+type UserType = 'job_seeker' | 'organization';
 
 export default function Register() {
   const [step, setStep] = useState<'type' | 'credentials'>('type');
   const [userType, setUserType] = useState<UserType | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const { signUp } = useAuth();
-  const navigate = useNavigate();
 
   const [authData, setAuthData] = useState({
     email: '',
@@ -25,38 +20,9 @@ export default function Register() {
     setStep('credentials');
   };
 
-  const handleAuthSubmit = async (e: React.FormEvent) => {
+  const handleAuthSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
-
-    if (authData.password !== authData.confirmPassword) {
-      setError('كلمات المرور غير متطابقة');
-      return;
-    }
-
-    if (authData.password.length < 6) {
-      setError('كلمة المرور يجب أن تكون 6 أحرف على الأقل');
-      return;
-    }
-
-    if (!userType) {
-      setError('يجب اختيار نوع المستخدم');
-      return;
-    }
-
-    setLoading(true);
-    const { error: signUpError } = await signUp(authData.email, authData.password, userType);
-
-    if (signUpError) {
-      setError(signUpError.message);
-      setLoading(false);
-    } else {
-      if (userType === 'job_seeker') {
-        navigate('/job-seeker-profile');
-      } else {
-        navigate('/organization-profile');
-      }
-    }
+    alert('تم إنشاء الحساب بنجاح!');
   };
 
   return (
@@ -76,12 +42,6 @@ export default function Register() {
             </div>
 
             <div className="p-8">
-              {error && (
-                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-                  <p className="text-red-600 text-sm text-center">{error}</p>
-                </div>
-              )}
-
               {step === 'type' && (
                 <div className="space-y-6">
                   <h2 className="text-2xl font-bold text-slate-900 text-center mb-8">
@@ -197,10 +157,9 @@ export default function Register() {
 
                   <button
                     type="submit"
-                    disabled={loading}
-                    className="w-full bg-red-600 text-white py-3 rounded-lg font-medium hover:bg-red-700 transition-colors duration-200 disabled:opacity-50"
+                    className="w-full bg-red-600 text-white py-3 rounded-lg font-medium hover:bg-red-700 transition-colors duration-200"
                   >
-                    {loading ? 'جاري الإنشاء...' : 'إنشاء الحساب'}
+                    إنشاء الحساب
                   </button>
 
                   <p className="text-center text-sm text-slate-600">

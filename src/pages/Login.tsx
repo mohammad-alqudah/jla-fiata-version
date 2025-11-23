@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import { Link } from 'react-router-dom';
 import { LogIn, Mail, Lock } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -10,30 +9,10 @@ export default function Login() {
   const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
-  const { signIn, profile } = useAuth();
-  const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
-    setLoading(true);
-
-    const { error: signInError } = await signIn(email, password);
-
-    if (signInError) {
-      setError('البريد الإلكتروني أو كلمة المرور غير صحيحة');
-      setLoading(false);
-    } else {
-      if (profile?.user_type === 'job_seeker') {
-        navigate('/job-seeker-profile');
-      } else if (profile?.user_type === 'organization') {
-        navigate('/organization-profile');
-      } else {
-        navigate('/');
-      }
-    }
+    alert('تم تسجيل الدخول بنجاح!');
   };
 
   return (
@@ -53,12 +32,6 @@ export default function Login() {
             </div>
 
             <div className="p-8">
-              {error && (
-                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-                  <p className="text-red-600 text-sm text-center">{error}</p>
-                </div>
-              )}
-
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
@@ -99,10 +72,9 @@ export default function Login() {
 
                 <button
                   type="submit"
-                  disabled={loading}
-                  className="w-full bg-red-600 text-white py-3 rounded-lg font-medium hover:bg-red-700 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-red-600 text-white py-3 rounded-lg font-medium hover:bg-red-700 transition-colors duration-200"
                 >
-                  {loading ? t("login_page.logging_in") : t("login_page.login_button")}
+                  {t("login_page.login_button")}
                 </button>
               </form>
 
