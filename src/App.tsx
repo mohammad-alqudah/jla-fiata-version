@@ -5,6 +5,8 @@ import AllNews from './pages/AllNews';
 import NewsDetail from './pages/NewsDetail';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import RegisterJobSeeker from './pages/RegisterJobSeeker';
+import RegisterMember from './pages/RegisterMember';
 
 import About from './pages/About';
 
@@ -38,6 +40,8 @@ function App() {
           <Route path="/news/:id" element={<NewsDetail />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/register-job-seeker" element={<RegisterJobSeeker />} />
+          <Route path="/register-member" element={<RegisterMember />} />
 
           <Route path="/fiata" element={<FiataHome />} />
           <Route path="/fiata/about" element={<AboutFiata />} />

@@ -101,13 +101,30 @@ export default function Login() {
                 </button>
               </form>
 
-              <div className="mt-6 text-center">
+              <div className="mt-6 text-center space-y-3">
                <p>
   {t("login_page.no_account")}{" "}
   <Link to="/register" className="text-red-600 hover:text-red-700 font-medium">
     {t("login_page.register_link")}
   </Link>
 </p>
+                <div className="pt-3 border-t border-slate-200">
+                  <p className="text-sm text-slate-600 mb-2">Register as:</p>
+                  <div className="flex gap-3 justify-center">
+                    <Link
+                      to="/register-job-seeker"
+                      className="px-4 py-2 bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors text-sm font-medium"
+                    >
+                      Job Seeker
+                    </Link>
+                    <Link
+                      to="/register-member"
+                      className="px-4 py-2 bg-emerald-50 text-emerald-700 rounded-lg hover:bg-emerald-100 transition-colors text-sm font-medium"
+                    >
+                      Member
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
