@@ -20,6 +20,10 @@ import IndustryUpdates from './pages/fiata/IndustryUpdates';
 import MediaCentre from './pages/fiata/MediaCentre';
 import Contact from './pages/fiata/Contact';
 
+import Profile from './pages/dashboard/Profile';
+import Jobs from './pages/dashboard/Jobs';
+import Applications from './pages/dashboard/Applications';
+
 
 
 
@@ -46,6 +50,10 @@ function App() {
           <Route path="/fiata/updates" element={<IndustryUpdates />} />
           <Route path="/fiata/media" element={<MediaCentre />} />
           <Route path="/fiata/contact" element={<Contact />} />
+
+          <Route path="/dashboard/profile" element={<Profile />} />
+          <Route path="/dashboard/jobs" element={<Jobs />} />
+          <Route path="/dashboard/applications" element={<Applications />} />
         </Routes>
       </Router>
     
