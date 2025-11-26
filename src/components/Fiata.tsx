@@ -5,13 +5,13 @@ import { useTranslation } from 'react-i18next';
 export default function Fiata() {
   const { t } = useTranslation();
   return (
-    <div>
+    <div className='py-12'>
         <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-200 rounded-full mb-6">
+            <div className="inline-flex items-center justify-center w-28 h-28 bg-white rounded-full mb-6">
                <img
                     src={fiata}
                     alt="FIATA - International  Federation of Freight Forwarders Associations"
-                    className="h-20 w-auto mx-auto  p-3 rounded-full"
+                    className="h-28 w-auto mx-auto  p-3 rounded-full"
                   />
             </div>
             <h2 className="text-4xl font-bold text-gray-900 mb-6">{t('fiata.title')}</h2>
